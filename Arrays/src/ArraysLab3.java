@@ -3,13 +3,21 @@ import java.util.Arrays;
 //contains main method and 5 other static methods
 public class ArraysLab3 {
 	public static void main(String[] args) {
-		int[] arr1 = {1,2,3};
-		int[] arr2 = {3,2,1};
-		int[] arr3 = {2,4,6,8,10,12};
-		System.out.println(Arrays.toString(sum(arr1, arr2)));
-		System.out.println((Arrays.toString(append(arr1, 4))));
-		System.out.println(Arrays.toString(remove(arr3, 3)));
-		System.out.println(sumEven(arr3));
+		int[] a1 = {5,10,15,20,25,30,35,40};
+		int[] a2 = {7,14,21,28,35,42,49,56};
+		int[] sumArr = sum(a1, a2);
+		int appendNum = 200;
+		int[] appendArr = append(a1, appendNum);
+		int removeIdx = 5;
+		int[] removeArr = remove(a2, removeIdx);
+		int sumOfEvens = sumEven(appendArr);
+		rotateRight(a1);
+		
+		System.out.println(Arrays.toString(sumArr));
+		System.out.println((Arrays.toString(appendArr)));
+		System.out.println(Arrays.toString(removeArr));
+		System.out.println(sumOfEvens);
+		System.out.println(Arrays.toString(a1));
 	}
 	public static int[] sum(int[] arr1, int[] arr2) {
 		int[] sum = new int[arr1.length];
@@ -29,7 +37,7 @@ public class ArraysLab3 {
 	}
 	public static int[] remove(int[] arr, int idx) {
 		int[] newArr = new int[arr.length-1];
-		for(int i = 0; i < newArr.length+1; i++) {
+		for(int i = 0; i < arr.length; i++) {
 			if(i>idx) {
 				newArr[i-1] = arr[i];
 			}else if(i<idx) {
@@ -48,6 +56,10 @@ public class ArraysLab3 {
 		return sum;
 	}
 	public static void rotateRight(int[] arr) {
-		
+		int temp = arr[arr.length-1];
+		for(int i = arr.length-1; i > 0; i--) {
+			arr[i] = arr[i-1];
+		}
+		arr[0] = temp;
 	}
 }

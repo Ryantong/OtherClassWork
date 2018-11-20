@@ -32,22 +32,22 @@ public class FracCalc {
     	String Operator = arr[1];
     	String secondOp = arr[2];
     	
-    	return secondOp;
+//    	return secondOp;
     	
-//    	String[] arr1 = firstOp.split("_");
-//    	int wholeNum1 = Integer.parseInt(arr1[0]);
-//    	String[] temp1 = arr1[1].split("/");
-//    	int numer1 = Integer.parseInt(temp1[0]);
-//    	int denom1 = Integer.parseInt(temp1[1]);
-//    	int mixedFrac1 = toImproperFrac(wholeNum1, numer1, denom1);
-//    	
-//    	String[] arr2 = secondOp.split("_");
-//    	int wholeNum2 = Integer.parseInt(arr2[0]);
-//    	String[] temp2 = arr2[1].split("_");
-//    	int numer2 = Integer.parseInt(temp2[0]);
-//    	int denom2 = Integer.parseInt(temp2[1]);
-//    	int mixedFrac2 = toImproperFrac(wholeNum2, numer2, denom2);
-//    	return "whole:" + wholeNum2 + " numerator:" + numer2 + " denominator:" + denom2;
+    	String[] arr1 = firstOp.split("_");
+    	int wholeNum1 = Integer.parseInt(arr1[0]);
+    	String[] temp1 = arr1[1].split("/");
+    	int numer1 = Integer.parseInt(temp1[0]);
+    	int denom1 = Integer.parseInt(temp1[1]);
+    	int mixedFrac1 = toImproperFrac(wholeNum1, numer1, denom1);
+    	
+    	String[] arr2 = secondOp.split("_");
+    	int wholeNum2 = Integer.parseInt(arr2[0]);
+    	String[] temp2 = arr2[1].split("_");
+    	int numer2 = Integer.parseInt(temp2[0]);
+    	int denom2 = Integer.parseInt(temp2[1]);
+    	int mixedFrac2 = toImproperFrac(wholeNum2, numer2, denom2);
+    	return "whole:" + wholeNum2 + " numerator:" + numer2 + " denominator:" + denom2;
 
     	
     	

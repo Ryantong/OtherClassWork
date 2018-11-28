@@ -34,24 +34,46 @@ public class FracCalc {
     	
 //    	return secondOp;
     	
-    	String[] arr1 = firstOp.split("_");
+    	String[] arr1 = partFrac(firstOp);
     	int wholeNum1 = Integer.parseInt(arr1[0]);
-    	String[] temp1 = arr1[1].split("/");
-    	int numer1 = Integer.parseInt(temp1[0]);
-    	int denom1 = Integer.parseInt(temp1[1]);
+    	int numer1 = Integer.parseInt(arr1[1]);
+    	int denom1 = Integer.parseInt(arr1[2]);
     	int mixedFrac1 = toImproperFrac(wholeNum1, numer1, denom1);
     	
-    	String[] arr2 = secondOp.split("_");
+    	String[] arr2 = partFrac(secondOp);
     	int wholeNum2 = Integer.parseInt(arr2[0]);
-    	String[] temp2 = arr2[1].split("_");
-    	int numer2 = Integer.parseInt(temp2[0]);
-    	int denom2 = Integer.parseInt(temp2[1]);
+    	int numer2 = Integer.parseInt(arr2[1]);
+    	int denom2 = Integer.parseInt(arr2[2]);
     	int mixedFrac2 = toImproperFrac(wholeNum2, numer2, denom2);
+  
     	return "whole:" + wholeNum2 + " numerator:" + numer2 + " denominator:" + denom2;
 
     	
     	
         // TODO: Implement this function to produce the solution to the input
+    }
+    //[0] = whole [1] = numer [2] = denom
+    public static String[] partFrac(String str) {
+    	String[] partFrac = new String[3];
+    	if(str.indexOf("/") == -1) {//if no frac
+			partFrac[0] = str;
+			partFrac[1] = "0";
+			partFrac[2] = "1";
+    	}else {//if have both whole and frac
+    		if(str.indexOf("_") == -1) {
+    			partFrac[0] = "0";
+    			String[] temp = str.split("/");
+    			partFrac[1] = temp[0];
+    			partFrac[2] = temp[1];
+    		}else {
+    			String[] temp = str.split("_");
+    			partFrac[0] = temp[0];//wholeNum
+    			String[] temp2 = temp[1].split("/");
+    			partFrac[1] = temp2[0];//Numer
+    			partFrac[2] = temp2[1];//Denom	
+    		}
+    	}
+    	return partFrac;
     }
 	public static int toImproperFrac(int wholeNum, int numer, int denom) {
 		int fracNumer = denom * wholeNum + numer;

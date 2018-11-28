@@ -59,13 +59,13 @@ public class FracCalc {
 			partFrac[0] = str;
 			partFrac[1] = "0";
 			partFrac[2] = "1";
-    	}else {//if have both whole and frac
-    		if(str.indexOf("_") == -1) {
+    	}else {
+    		if(str.indexOf("_") == -1) {//if only frac
     			partFrac[0] = "0";
     			String[] temp = str.split("/");
     			partFrac[1] = temp[0];
     			partFrac[2] = temp[1];
-    		}else {
+    		}else {//if have both whole and frac
     			String[] temp = str.split("_");
     			partFrac[0] = temp[0];//wholeNum
     			String[] temp2 = temp[1].split("/");

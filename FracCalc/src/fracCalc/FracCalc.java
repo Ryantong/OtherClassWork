@@ -32,8 +32,6 @@ public class FracCalc {
     	String Operator = arr[1];
     	String secondOp = arr[2];
     	
-//    	return secondOp;
-    	
     	String[] arr1 = partFrac(firstOp);
     	int wholeNum1 = Integer.parseInt(arr1[0]);
     	int numer1 = Integer.parseInt(arr1[1]);
@@ -46,8 +44,22 @@ public class FracCalc {
     	int denom2 = Integer.parseInt(arr2[2]);
     	int mixedFrac2 = toImproperFrac(wholeNum2, numer2, denom2);
   
-    	return "whole:" + wholeNum2 + " numerator:" + numer2 + " denominator:" + denom2;
-
+    	//return "whole:" + wholeNum2 + " numerator:" + numer2 + " denominator:" + denom2;
+    	int commonDenom = denom1 * denom2;
+    	int newNumer1 = denom2 * mixedFrac1;
+    	int newNumer2 = denom1 * mixedFrac2;
+    	if(Operator.equals("+")) {
+    		return newNumer1 + newNumer2 + "/" + commonDenom;
+    	}else if(Operator.equals("-")) {
+    		return newNumer1 - newNumer2 + "/" + commonDenom;
+    	}else if(Operator.equals("*")) {
+    		return newNumer1 * newNumer2 + "/" + commonDenom;
+    	}else{
+    		return newNumer1 / newNumer2 + "/" + commonDenom;
+    	}
+    	
+    	
+    	
     	
     	
         // TODO: Implement this function to produce the solution to the input

@@ -33,7 +33,7 @@ public class FracCalc {
     	String secondOp = arr[2];
     	
     	String[] arr1 = partFrac(firstOp);
-    	int wholeNum1 = Integer.parseInt(arr1[0]);
+    	int wholeNum1 = Integer.parseInt(arr1[0]);//i mean i can put these into arrays but i found it easier to use variables  
     	int numer1 = Integer.parseInt(arr1[1]);
     	int denom1 = Integer.parseInt(arr1[2]);
     	int mixedFrac1 = toImproperFrac(wholeNum1, numer1, denom1);
@@ -45,20 +45,20 @@ public class FracCalc {
     	int mixedFrac2 = toImproperFrac(wholeNum2, numer2, denom2);
   
     	//return "whole:" + wholeNum2 + " numerator:" + numer2 + " denominator:" + denom2;
-    	int commonDenom = denom1 * denom2;
-    	int newNumer1 = denom2 * mixedFrac1;
-    	int newNumer2 = denom1 * mixedFrac2;
+    	int commonDenom = denom1 * denom2;//now whole nums are still multiplying to denom
+    	int newNumer1 = denom2 * mixedFrac1;//1*3
+    	int newNumer2 = denom1 * mixedFrac2;//2*2
     	if(Operator.equals("+")) {
-    		return newNumer1 + newNumer2 + "/" + commonDenom;
+    		return newNumer1 + newNumer2 + "/" + commonDenom; 
     	}else if(Operator.equals("-")) {
     		return newNumer1 - newNumer2 + "/" + commonDenom;
     	}else if(Operator.equals("*")) {
-    		return newNumer1 * newNumer2 + "/" + commonDenom;
+    		return newNumer1 * newNumer2 + "/" + commonDenom;//12/2 but suppose to be 3
     	}else{
     		return newNumer1 / newNumer2 + "/" + commonDenom;
     	}
-    	
-    	
+    	//1_1/2 * 2
+    	//3/2 * 2/1
     	
     	
     	
@@ -88,7 +88,12 @@ public class FracCalc {
     	return partFrac;
     }
 	public static int toImproperFrac(int wholeNum, int numer, int denom) {
-		int fracNumer = denom * wholeNum + numer;
+		int fracNumer;
+		if(wholeNum < 0) {
+			fracNumer = denom * wholeNum - numer;
+		}else {
+			fracNumer = denom * wholeNum + numer;
+		}
 		return fracNumer;
 	}
     

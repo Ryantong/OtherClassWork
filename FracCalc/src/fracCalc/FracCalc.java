@@ -47,7 +47,7 @@ public class FracCalc {
     	//return "whole:" + wholeNum2 + " numerator:" + numer2 + " denominator:" + denom2;
     	int commonDenom = denom1 * denom2;//now whole nums are still multiplying to denom
     	int newNumer1 = denom2 * mixedFrac1;//1*3
-    	int newNumer2 = denom1 * mixedFrac2;//2*2
+    	int newNumer2 = denom1 * mixedFrac2;//2*2 don't multiply denom but still do somehow
     	if(Operator.equals("+")) {
     		return newNumer1 + newNumer2 + "/" + commonDenom; 
     	}else if(Operator.equals("-")) {

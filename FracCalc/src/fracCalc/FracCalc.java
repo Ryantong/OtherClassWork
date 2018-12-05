@@ -44,33 +44,46 @@ public class FracCalc {
     	int denom2 = Integer.parseInt(arr2[2]);
     	int mixedFrac2 = toImproperFrac(wholeNum2, numer2, denom2);
   
-    	//return "whole:" + wholeNum2 + " numerator:" + numer2 + " denominator:" + denom2;
-    	int commonDenom = denom1 * denom2;//now whole nums are still multiplying to denom
+    	int commonDenom = denom1 * denom2;
+    	int newNumer1;
+    	int newNumer2;
     	if(denom1 == 1) {
-    		int newNumer1 = mixedFrac1;
+    		newNumer1 = mixedFrac1;
     	}else {
-    		int newNumer1 = denom2 * mixedFrac1;//1*3
+    		newNumer1 = denom2 * mixedFrac1;
     	}
     	if(denom2 == 1) {
-    		int newNumer2 = mixedFrac2;
+    		newNumer2 = mixedFrac2;
     	}else {
-    		int newNumer2 = denom1 * mixedFrac2;//2*2 don't multiply denom but still do somehow
+    		newNumer2 = denom1 * mixedFrac2;
     	}
     	
     	if(Operator.equals("+")) {
+    		if(denom2 == 1) {
+    			return newNumer1 + (newNumer2 * denom1) + "/" + commonDenom;
+    		}else if(denom1 == 1){
+    			return (newNumer1 * denom2) + newNumer2 + "/" + commonDenom;
+    		}
     		return newNumer1 + newNumer2 + "/" + commonDenom; 
     	}else if(Operator.equals("-")) {
+    		if(denom2 == 1) {
+    			return newNumer1 - (newNumer2 * denom1) + "/" + commonDenom;
+    		}else if(denom1 == 1) {
+    			return (newNumer1 * denom2) - newNumer2 + "/" + commonDenom;
+    		}
     		return newNumer1 - newNumer2 + "/" + commonDenom;
     	}else if(Operator.equals("*")) {
-    		return newNumer1 * newNumer2 + "/" + commonDenom;//12/2 but suppose to be 3
+    		if(denom1 == 1 || denom2 == 1) {
+    			return newNumer1 * newNumer2 + "/" + commonDenom;
+    		}
+    		return newNumer1 * newNumer2 / commonDenom + "/" + commonDenom;
     	}else{
-    		return newNumer1 / newNumer2 + "/" + commonDenom;
+    		if(denom1 == 1 || denom2 == 1) {
+    			return newNumer1 * denom2 + "/" + newNumer2 * denom1;
+    		}
+    		return newNumer1 + "/" + newNumer2; 
     	}
-    	//1_1/2 * 2
-    	//3/2 * 2/1
-    	
-    	
-    	
+
         // TODO: Implement this function to produce the solution to the input
     }
     //[0] = whole [1] = numer [2] = denom

@@ -158,10 +158,9 @@ public class FracCalc {
 		return toMixedNum(tempNumer, tempDenom);
 	}
 	//-20 / 7
-	//
 	//-2_6/7
-	
-    
+	//somehow just printing num1
+    //ibegivingup
 
     // TODO: Fill in the space below with any helper methods that you think you will need
     

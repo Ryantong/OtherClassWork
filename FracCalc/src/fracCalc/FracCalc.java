@@ -59,6 +59,9 @@ public class FracCalc {
     	}
     	
     	if(Operator.equals("+")) {
+    		if(numer1 == 0 && numer2 == 0) {
+    			return(wholeNum1 + wholeNum2 + "");
+    		}
     		if(denom2 == 1) {
     			return reduceAnswer(newNumer1 + (newNumer2*denom1), commonDenom);
     		}else if(denom1 == 1){
@@ -73,18 +76,22 @@ public class FracCalc {
     		}
     		return reduceAnswer(newNumer1 - newNumer2, commonDenom);
     	}else if(Operator.equals("*")) {
+    		if(newNumer1 == 0 || newNumer2 == 0) {
+    			return "0";
+    		}
     		if(denom1 == 1 || denom2 == 1) {
     			return reduceAnswer(newNumer1 * newNumer2, commonDenom);
     		}
     		return reduceAnswer(newNumer1 * newNumer2 / commonDenom, commonDenom);
     	}else{
+    		if(denom1 == 1 && denom2 == 1) {
+    			return reduceAnswer(newNumer1, newNumer2);
+    		}
     		if(denom1 == 1 || denom2 == 1) {
     			return reduceAnswer(newNumer1 * denom2, denom1);
     		}
     		return reduceAnswer(newNumer1, newNumer2); 
     	}
-//-20 / 7
-//-2_6/7
         // TODO: Implement this function to produce the solution to the input
     }
     //[0] = whole [1] = numer [2] = denom
@@ -120,14 +127,14 @@ public class FracCalc {
 		return fracNumer;
 	}
 	public static int gcf(int num1, int num2) {
-		while (num2 != 0) {//0!=0
-			int replace = num1;//-6
-			num1 = num2;//-1
-			num2 = replace % num2;//-6%-1=-0
+		while (num2 != 0) {
+			int replace = num1;
+			num1 = num2;
+			num2 = replace % num2;
 		}
-		double a = (double)num1;//1
-		absValue(a);//1
-		num1= (int)a;//1
+		double a = (double)num1;
+		absValue(a);
+		num1= (int)a;
 		return num1;
 	}
 	public static double absValue(double num) {
@@ -145,22 +152,18 @@ public class FracCalc {
 		}
 	} 
 	public static String toMixedNum(int numer, int demon) {
-		int wholeNum = numer / demon;//-2
-		int newNumer = numer % demon;//6
-		return wholeNum +"_" + absValue(newNumer) + "/" + absValue(demon);//-2_6/7
+		int wholeNum = numer / demon;
+		int newNumer = numer % demon;
+		return wholeNum +"_" + absValue(newNumer) + "/" + absValue(demon);
 	}
 	public static String reduceAnswer(int numer, int  commonDenom) {
-		int tempNumer = numer;//-20
-		int tempDenom = commonDenom;//7
-		int temp = gcf(tempNumer, commonDenom);//1
-		tempNumer = tempNumer / temp;//-20
-		tempDenom = tempDenom / temp;//-7
+		int tempNumer = numer;
+		int tempDenom = commonDenom;
+		int temp = gcf(tempNumer, commonDenom);
+		tempNumer = tempNumer / temp;
+		tempDenom = tempDenom / temp;
 		return toMixedNum(tempNumer, tempDenom);
 	}
-	//-20 / 7
-	//-2_6/7
-	//somehow just printing num1
-    //ibegivingup
 
     // TODO: Fill in the space below with any helper methods that you think you will need
     

@@ -1,8 +1,8 @@
-package fracCalc;
+package fracCalcOld;
 
 import java.util.Scanner;
 
-public class FracCalc {
+public class FracCalcOld {
 
     public static void main(String[] args) 
     {
